@@ -1,6 +1,7 @@
 from apiflask import APIFlask
 from flask_sqlalchemy import SQLAlchemy
 from flask_marshmallow import Marshmallow
+from app.config import DB_URL
 
 app = APIFlask(__name__)
 
@@ -18,7 +19,8 @@ app.external_docs = {
     'url': 'https://www.companyname.com'
 }
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///data.db'
+
+app.config['SQLALCHEMY_DATABASE_URI'] = DB_URL
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
